@@ -51,12 +51,12 @@ module.exports = function toReadable (number) {
                     item = obj.str + ' ' + funcNumb(value[1]);
                 }
             })
-        }
+        }else item = funcNumb(value[1]);
         return item;
     }
 
     const funcHundredths = (value) => {
-        return funcNumb(value[0]) + ' hundred ' + funcDecimal(value[1]) + funcNumb(value[2]);
+        return funcNumb(value[0]) + ' hundred ' + funcDecimal(value.slice(1));
     }
 
     if (number === 0) {
