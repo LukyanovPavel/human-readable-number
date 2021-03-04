@@ -56,9 +56,13 @@ module.exports = function toReadable (number) {
     }
 
     const funcHundredths = (value) => {
-        return funcNumb(value[0]) + ' hundred ' + funcDecimal(value.slice(1));
+        if (value.slice(1) !== '00') {
+            return funcNumb(value[0]) + ' hundred ' + funcDecimal(value.slice(1));
+        }else {
+            return funcNumb(value[0]) + ' hundred';
+        }
     }
-
+    
     if (number === 0) {
         return 'zero';
     } else if (number < 10) {
